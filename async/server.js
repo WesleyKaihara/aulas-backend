@@ -1,7 +1,7 @@
 const express = require('express')
 const server = express()
 const productRouter = require('./products')
-const NotFoundError = require('./NotFoundErro')
+const NotFoundError = require('./NotFoundError')
 
 server.use(express.json())
 

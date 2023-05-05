@@ -1,6 +1,6 @@
 const server = require('./server')
 
-const port =  8080
+const port =  3000
 
 server.listen(port,() => {
   console.log(`Rodando na port ${port}`)  

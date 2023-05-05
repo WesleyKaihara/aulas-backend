@@ -1,43 +1,31 @@
 const express = require('express')
-const NotFoundError = require('./NotFoundErro')
+const NotFoundError = require('./NotFoundError')
+const { getAllProducts, createProduct, updateProduct, deleteProduct } = require('./db/product')
 const router = express.Router()
 
-let products = [
-  { id: 1, name: "ps5", price: 5000 },
-  { id: 2, name: "xbox", price: 3500 },
-  { id: 3, name: "switch", price: 2300 },
-]
-
-router.get("/products",(req,res) => { 
-  res.json({products: products})
+router.get("/products", async(req,res) => { 
+  const products = await getAllProducts()
+  res.json({products})
 })
 
-router.post("/products",(req,res) => { 
+router.post("/products",async (req,res) => { 
   const product = req.body
+  await createProduct(product.name,product.price)
   products.push(product)
   res.json({status: "OK"})
 })
 
-router.put("/products/:id",(req,res) => {
+router.put("/products/:id",async (req,res) => {
   const id = Number(req.params.id)
 
-  const product = products.find(product => {
-    return (product.id === id)
-  })
-
-  if(!product) throw new NotFoundError("product")
-
-  product.name = req.body.name
-  product.price = req.body.price
-
+  await updateProduct(id,req.body.name,req.body.price)
+  
   res.json({status:"OK"})
 })
 
-router.delete("/products/:id",(req,res) => {
+router.delete("/products/:id", async(req,res) => {
   const id = Number(req.params.id)
-  products = products.filter(
-    product => product.id !== id
-  )
+  await deleteProduct(id)
   res.json({status: "OK"})
 })
 

@@ -22,5 +22,5 @@ console.log(Somar(10,15))
 console.log(Subtrair(12,4))
 console.log(Dividir(50,5))
 console.log(Multiplicar(2,45))
-console.log(isPar(2)?"SIM":"NÃO")
+console.log(isPar(5)?"SIM":"NÃO")
 
