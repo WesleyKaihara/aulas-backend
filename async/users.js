@@ -1,7 +1,11 @@
-const express = require('express')
-const { createUser, findUserByEmail } = require('./db/user')
-const bcrypt = require('bcrypt')
 const NotAuthorized = require('./NotAuthorized')
+
+const { createUser, findUserByEmail } = require('./db/user')
+
+const express = require('express')
+
+const bcrypt = require('bcrypt')
+const jwt = require('jsonwebtoken')
 const router = express.Router()
 
 router.post("/user", async(req,res) => {
@@ -21,8 +25,16 @@ router.post("/login", async(req,res,next) => {
   
     const isEqual = bcrypt.compareSync(password,user.password)
     if(!isEqual) throw new NotAuthorized()
-  
-    res.send("login")
+    
+    const payload = {
+      id: user.id,
+      name: user.name
+    }
+
+    const token = jwt.sign(payload,process.env.SECRET)
+    res.json({
+      token
+    })
   } catch (error) {
     next(error)
   }
