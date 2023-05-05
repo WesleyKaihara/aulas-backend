@@ -1,11 +1,13 @@
-# Aulas Assíncronas
+# Atividades da disciplina de Backend com Nodejs
 
-## Criar container do postgres
+### LINKS: 
+- [Download NodeJS](https://nodejs.org/pt-br)
 
-```
-  docker pull postgres
-```
+- [Download VSCode](https://code.visualstudio.com/download)
 
-```
-  sudo docker run --name meu-postgres --restart always -v $HOME/banco-postgres:/var/lib/postgresql/data -p7777:5432 -e POSTGRES_PASSWORD=SENHA_DO_USUÁRIO_POSTGRES -d postgres
-```
+- [Prisma DOC](https://www.prisma.io/docs)
+
+#
+
+
+EM BREVE
