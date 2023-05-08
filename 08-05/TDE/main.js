@@ -1,19 +1,27 @@
 // 1 -> Escreva na tela todos os números pares de 0 a 100 
 
-for(let i=0;i<=100;i++) {
-  if(i%2 == 0) console.log(i)
+const oneToHundred = () => {
+  for(let i=0;i<=100;i++) {
+    if(i%2 == 0) console.log(i)
+  }
 }
+
+oneToHundred()
  
 // 2 -> Criar um algoritmo que percorre um array de números qualquer e retorna a soma total desses números
 // ex: [2, 4, 6, 8] -> Soma: 2 + 4 + 6 + 8 = 20
 
 let arr = [2, 4, 6, 8]
-let sum = 0
 
-for(let i=0;i<arr.length;i++) {
-  sum+=arr[i]
+const sumArray = (arr) => {
+  let sum = 0
+  for(let i=0;i<arr.length;i++) {
+    sum+=arr[i]
+  }
+  return sum
 }
-console.log(sum)
+
+console.log(sumArray(arr))
 
 console.log(arr.reduce((acc,num) => acc + num))
  
@@ -22,7 +30,7 @@ console.log(arr.reduce((acc,num) => acc + num))
 
 let arr2 = [-1, 1, -2, 2, -3, 3]
 function removeNegativeNumbers(arr) {
-  return arr.filter(item => item >= 0);
+  return arr.filter(item => item > 0);
 }
 
 console.log(removeNegativeNumbers(arr2))
@@ -31,12 +39,16 @@ console.log(removeNegativeNumbers(arr2))
 // ex: [1, 2, 3, 4, 5] -> [2, 4, 6, 8, 10]
 
 let arr3 = [1, 2, 3, 4, 5]
-let arr3_Double = [];
 
-for(let i=0;i<arr3.length;i++) {
-  arr3_Double[i] = arr3[i]*2
+const doubleArrayItems = (arr) => {
+  let arrDouble = [];
+  for(let i=0;i<arr3.length;i++) {
+    arrDouble[i] = arr3[i]*2
+  }
+  return arrDouble
 }
-console.log(arr3_Double);
+
+console.log(doubleArrayItems(arr));
 
 arr3_Double2 = arr3.map(i => i*=2)
 console.log(arr3_Double2)
