@@ -1,5 +1,5 @@
 const jwt = require("jsonwebtoken")
-const NotAuthorized = require('./NotAuthorized')
+const NotAuthorized = require('../errors/NotAuthorized')
 
 const auth = (req,res,next) => {  
   try {

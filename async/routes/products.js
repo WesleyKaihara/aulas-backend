@@ -1,7 +1,7 @@
 const express = require('express')
-const NotFoundError = require('./NotFoundError')
-const { getAllProducts, createProduct, updateProduct, deleteProduct } = require('./db/product')
-const auth = require('./auth')
+const NotFoundError = require('../errors/NotFoundError')
+const { getAllProducts, createProduct, updateProduct, deleteProduct } = require('../db/product')
+const auth = require('../auth/auth')
 const router = express.Router()
 
 router.get("/products", async(req,res) => { 

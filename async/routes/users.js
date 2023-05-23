@@ -1,6 +1,6 @@
-const NotAuthorized = require('./NotAuthorized')
+const NotAuthorized = require('../errors/NotAuthorized')
 
-const { createUser, findUserByEmail } = require('./db/user')
+const { createUser, findUserByEmail } = require('../db/user')
 
 const express = require('express')
 

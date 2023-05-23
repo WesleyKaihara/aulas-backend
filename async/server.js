@@ -1,4 +1,4 @@
-const NotFoundError = require('./NotFoundError')
+const NotFoundError = require('./errors/NotFoundError')
 
 const express = require('express')
 
@@ -6,9 +6,9 @@ const server = express()
 server.use(express.json())
 
 //routes
-const productRouter = require('./products')
-const usersRouter = require('./users')
-const NotAuthorized = require('./NotAuthorized')
+const productRouter = require('./routes/products')
+const usersRouter = require('./routes/users')
+const NotAuthorized = require('./errors/NotAuthorized')
 
 server.use(productRouter)
 server.use(usersRouter)

@@ -1,0 +1,23 @@
+POST http://localhost:3000/products HTTP/1.1
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwibmFtZSI6Indlc2xleTIiLCJpYXQiOjE2ODMzMjAxNDB9.91F_aYNM1naYMM51RYJuKBE-nom12VoAdXJNlf0B5K0
+
+{
+    "name": "ps3",
+    "price": 800
+}
+
+### 
+GET http://localhost:3000/products
+
+### 
+PUT http://localhost:3000/products/1 HTTP/1.1
+content-type: application/json
+
+{
+    "name": "ps4",
+    "price": 1200
+}
+
+### 
+DELETE http://localhost:3000/products/1 HTTP/1.1
